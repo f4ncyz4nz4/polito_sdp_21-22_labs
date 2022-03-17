@@ -24,7 +24,7 @@ int main(int argc, char **argv){
 
     if(argc!=4){
         printf("Errore");
-        exit(0);
+        abort();
     }
 
     fd1 = fopen(argv[1], "r");
