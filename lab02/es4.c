@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-// #include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -27,7 +26,6 @@ void* paral_visit(void *par){
                 strcat(file, "/");
                 pthread_create(&t, NULL, paral_visit, (void*) file);
                 pthread_join(t, NULL);
-                // paral_visit((void*) file);
             }
         }else{
             fprintf(stdout, "Thread=%ld file=%s\n", pthread_self(), file);
