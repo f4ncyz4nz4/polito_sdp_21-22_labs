@@ -9,42 +9,62 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-#define BUFFSIZE 32
+typedef struct {
+    int id;
+    long int regNum;
+    char surname[31];
+    char name[31];
+    int mark;
+} str;
+
+typedef struct {
+    int l;
+    char* src;
+} param;
 
 void* th_f1(void* par) {
-    char* src = (char*)par;
+    param* p = (param*)par;
     int i = 0, j = 0;
+    str e;
 
-    while (src[i] != '\0') {
-        while (src[i] != '\n') {
-            if (src[i] == ' ' && j == 0) {
-                do {
-                    i++;
-                    j++;
-                } while (src[i] != ' ');
-                src[i - 1]++;
-            }
+    while (p->src[i] != '\0') {
+        while (p->src[i] != '\n') {
             i++;
+            j++;
         }
-        j = 0;
-        i++;
+        sscanf(p->src, "%d %ld %s %s %d", &e.id, &e.regNum, e.name, e.surname,
+               &e.mark);
+        e.regNum++;
+        sprintf(p->src, "%d %ld %s %s %d", e.id, e.regNum, e.name, e.surname,
+                e.mark);
+        if (j < p->l) {
+            p->src[i] = '\n';
+        }
+        p->src += (i + 1);
+        i = 0;
     }
     pthread_exit(NULL);
 }
 void* th_f2(void* par) {
-    char* src = (char*)par;
-    int i = 0, j = 0, n = 0;
-    while (src[n] != '\0') {
-        n++;
-    }
-    n--;
+    param* p = (param*)par;
+    int i = 0, j = 0;
+    str e;
 
-    src + n;
-    src[i]--;
-    for (i = 0; i < n; i--) {
-        if (src[i] != '\n') {
-            src[i - 1]--;
+    while (p->src[i] != '\0') {
+        while (p->src[i] != '\n') {
+            i++;
+            j++;
         }
+        sscanf(p->src, "%d %ld %s %s %d", &e.id, &e.regNum, e.name, e.surname,
+               &e.mark);
+        e.mark--;
+        sprintf(p->src, "%d %ld %s %s %d", e.id, e.regNum, e.name, e.surname,
+                e.mark);
+        if (j < p->l) {
+            p->src[i] = '\n';
+        }
+        p->src += (i + 1);
+        i = 0;
     }
     pthread_exit(NULL);
 }
@@ -53,6 +73,8 @@ int main(int argc, char const* argv[]) {
     int f_in;
     struct stat sbuf;
     pthread_t th1, th2;
+    param* p1 = (param*)malloc(sizeof(param));
+    param* p2 = (param*)malloc(sizeof(param));
     void* src;
 
     if ((f_in = open("file_1", O_RDWR)) < 1) {
@@ -73,13 +95,21 @@ int main(int argc, char const* argv[]) {
         abort();
     }
 
-    pthread_create(&th1, NULL, th_f1, (void*)src);
-    // pthread_create(&th2, NULL, th_f2, (void*)src);
+    p1->l = sbuf.st_size;
+    p1->src = (char*)src;
+    p2->l = sbuf.st_size;
+    p2->src = (char*)src;
+
+    pthread_create(&th1, NULL, th_f1, (void*)p1);
+    pthread_create(&th2, NULL, th_f2, (void*)p2);
 
     pthread_join(th1, NULL);
-    // pthread_join(th2, NULL);
+    pthread_join(th2, NULL);
 
     munmap(src, sbuf.st_size);
+
+    free(p1);
+    free(p2);
 
     return 0;
 }
