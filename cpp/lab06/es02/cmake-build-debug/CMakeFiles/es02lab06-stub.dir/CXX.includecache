@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/antoniovetro/nextcloud-nexa/DIDATTICA/System and Device Programming/lab rivisti/lab06/lab_06_spec/es02lab06-stub/Queue.cpp
+Queue.h
+/Users/antoniovetro/nextcloud-nexa/DIDATTICA/System and Device Programming/lab rivisti/lab06/lab_06_spec/es02lab06-stub/Queue.h
+iostream
+-
+
+/Users/antoniovetro/nextcloud-nexa/DIDATTICA/System and Device Programming/lab rivisti/lab06/lab_06_spec/es02lab06-stub/Queue.h
+iosfwd
+-
+
