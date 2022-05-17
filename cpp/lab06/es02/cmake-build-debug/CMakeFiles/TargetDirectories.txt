@@ -1,3 +1,3 @@
-/Users/antoniovetro/nextcloud-nexa/DIDATTICA/System and Device Programming/lab rivisti/lab06/lab_06_spec/es02lab06-stub/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/antoniovetro/nextcloud-nexa/DIDATTICA/System and Device Programming/lab rivisti/lab06/lab_06_spec/es02lab06-stub/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/antoniovetro/nextcloud-nexa/DIDATTICA/System and Device Programming/lab rivisti/lab06/lab_06_spec/es02lab06-stub/cmake-build-debug/CMakeFiles/es02lab06-stub.dir
+C:/Users/loren/Desktop/System and device program/Stefano-Quer/labs/cpp/lab06/es02/cmake-build-debug/CMakeFiles/es02.dir
+C:/Users/loren/Desktop/System and device program/Stefano-Quer/labs/cpp/lab06/es02/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/loren/Desktop/System and device program/Stefano-Quer/labs/cpp/lab06/es02/cmake-build-debug/CMakeFiles/rebuild_cache.dir

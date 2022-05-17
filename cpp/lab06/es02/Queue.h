@@ -4,30 +4,43 @@
 
 #include <iosfwd>
 
-enum Client {PRIORITY=1, POSTAL=2, MONEY=3};
+enum Client {
+    PRIORITY = 1, POSTAL = 2, MONEY = 3
+};
 
 class Queue {
 public:
     Queue();
+
     enum Client pop();
+
     int push(enum Client);
+
     bool empty();
+
     void printQueue();
+
+    Queue &operator=(const Queue &);
+
 private:
     void _pushAt(enum Client, int);
-    enum Client* _queue;
+    enum Client *_queue;
     int _size;
+    int _priority;
+    int _postal;
+    int _money;
 };
 
 class QueueEmptyException {
 public:
     QueueEmptyException()
-            : message( "The queue is empty!" ) { }
+            : message("The queue is empty!") {}
+
     const char *what() const { return message; }
+
 private:
     const char *message;
 };
-
 
 
 #endif //ES02LAB06_QUEUE_H

@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/es02lab06-stub.dir/main.cpp.o CMakeFiles/es02lab06-stub.dir/Queue.cpp.o  -o es02lab06-stub 
