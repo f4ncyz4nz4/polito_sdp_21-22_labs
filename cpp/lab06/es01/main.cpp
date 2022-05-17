@@ -3,8 +3,7 @@
 #include "StackClass.cpp"
 #include <vector>
 
-int main()
-{
+int main() {
     StackClass<int> myStack;
     int val;
 
@@ -41,7 +40,7 @@ int main()
     std::vector<int> dataVector;
     dataVector = myStack.getStackAsVector();
     std::cout << "v = { ";
-    for (int n : dataVector) {
+    for (int n: dataVector) {
         std::cout << n << ", ";
     }
     std::cout << "}; \n";

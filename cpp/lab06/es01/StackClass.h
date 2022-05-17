@@ -45,7 +45,8 @@ public:
 
     void reverse();
 
-    friend std::ostream &operator<<<T>(std::ostream &, const StackClass<T> &);
+    friend std::ostream &operator
+    <<<T>(std::ostream &, const StackClass<T> &);
 
     StackClass<T> operator+(const StackClass<T> &);
 
