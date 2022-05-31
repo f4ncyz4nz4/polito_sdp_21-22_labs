@@ -1,0 +1,3 @@
+C:/Users/loren/Desktop/System and device program/Stefano-Quer/labs/cpp/lab07/es01/cmake-build-debug/CMakeFiles/es01.dir
+C:/Users/loren/Desktop/System and device program/Stefano-Quer/labs/cpp/lab07/es01/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/loren/Desktop/System and device program/Stefano-Quer/labs/cpp/lab07/es01/cmake-build-debug/CMakeFiles/rebuild_cache.dir
